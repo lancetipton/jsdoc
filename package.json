@@ -1,6 +1,6 @@
 {
   "name": "@daybrush/jsdoc",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "An API documentation generator for JavaScript and Typescript.",
   "keywords": [
     "documentation",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/parser": "^7.2.3",
     "@babel/types": "^7.2.2",
-    "@daybrush/utils": "^0.4.0",
+    "@daybrush/utils": "^1.0.0",
     "ast-parser": "0.0.5",
     "bluebird": "~3.5.0",
     "catharsis": "~0.8.9",
