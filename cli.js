@@ -400,7 +400,27 @@ cli.processParseResults = function() {
 };
 
 cli.dumpParseResults = function() {
-    console.log(require('jsdoc/util/dumper').dump(props.docs));
+    function copyWithoutNode(node) {
+        if (Array.isArray(node)) {
+            return node.map(function(childNode) {
+                return copyWithoutNode(childNode);
+            });
+        } else if (typeof node === 'object') {
+            var nextObject = {};
+
+            for (var name in node) {
+                if (name === 'node') {
+                    continue;
+                }
+                nextObject[name] = copyWithoutNode(node[name]);
+            }
+
+            return nextObject;
+        }
+
+        return node;
+    }
+    console.log(require('jsdoc/util/dumper').dump(copyWithoutNode(props.docs)));
 
     return cli;
 };
